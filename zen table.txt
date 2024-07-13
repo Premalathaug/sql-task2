@@ -1,0 +1,60 @@
+create table mentor(id int primary key,m_name varchar(25),email varchar(50));
+describe mentor;
+insert into mentor (id,m_name,email)values
+(100,"PugazharasanC","pugazh@abc.com"),
+(102,"Sathish","sathish@abc.com"),
+(103,"sureshbabu","suresh@abc.com");
+select * from mentor;
+
+create table courses(id int primary key,c_name varchar(50) ,detail varchar(50));
+describe batch;
+insert into courses(id,c_name,detail)values
+(21,"fullstack","javascript,html,css,react,db"),
+(22,"Datascience","The study of data"),
+(23,"Artificial intelligence","How computer things like people"),
+(24,"Cryptography","Security authentication of computer");
+select * from courses;
+
+
+create table student (id int primary key,s_name varchar(25),email varchar(50),contact int,
+batch_id int,foreign key(batch_id) references batch(id));
+describe student;
+insert into student (id,s_name,email,contact,batch_id)values(1,"Prema","prem@abc.com",98754,21),
+(2,"Hema","hema@abc.com",89765,1001),
+(3,"Krishnaveni","veni@abc.com",789654,1002),
+(4,"bala","bala@abc.com",86673,1003),
+(5,"venkat","venkat@abc.com",908765,1002);
+select* from student;
+
+
+create table tasks (id int primary key,t_name varchar(50));
+describe tasks;
+insert into tasks(id,t_name)values
+(21,"dom"),
+(22,"promise"),
+(23,"pagination"),
+(24,"reactcard"),
+(25,"Sql");
+select* from tasks;
+
+create table batch(id int primary key,
+ b_name varchar(50),b_name varchar(50) ,c_id int,foreign key(c_id)references course(id));
+describe batch;
+insert into batch(id,c_name)values
+(1001,"fsd13wd"),
+(1002,"ds23we"),
+(1003,"ai54wd"),
+(1004,"cg78we");
+select *from courses;
+
+create table mark(id int primary key,mentorid int ,foreign key(mentorid) references mentor(id),
+taskid int,foreign key(taskid)references tasks(id),marks int);
+describe mark;
+insert into mark(id,mentorid,taskid,marks)values
+(10001,101,21,70),
+(10002,103,22,80),
+(10003,102,23,60),
+(10004,103,24,90);
+select * from mark;
+
+
